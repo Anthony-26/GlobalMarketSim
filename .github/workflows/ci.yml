@@ -1,0 +1,39 @@
+name: CI Backend
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # Étape 1 : Cloner le repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Étape 2 : Configurer Java 17
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Étape 3 : Build, tests, et rapport JaCoCo
+      - name: Build and Test
+        run: mvn clean verify -B
+
+      # Étape 4 : Publier le JAR comme artefact
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: globalmarketsim-jar
+          path: target/globalmarketsim-0.0.1-SNAPSHOT.jar
+
+      # Étape 5 : Publier le rapport JaCoCo
+      - name: Upload JaCoCo Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: target/site/jacoco/

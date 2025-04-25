@@ -1,0 +1,43 @@
+name: CodeQL Analysis
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0' # Exécute chaque dimanche à minuit
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      # Étape 1 : Cloner le repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Étape 2 : Initialiser CodeQL
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: java
+          queries: security-and-quality
+
+      # Étape 3 : Configurer Java pour la compilation
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Étape 4 : Construire le projet
+      - name: Build with Maven
+        run: mvn clean package -DskipTests
+
+      # Étape 5 : Analyse CodeQL
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
