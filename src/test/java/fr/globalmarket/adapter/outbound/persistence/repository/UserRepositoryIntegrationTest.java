@@ -28,13 +28,13 @@ class UserRepositoryIntegrationTest {
     private UserEntity buildValidUserEntity(String email, String password, BigDecimal capital) {
         return UserEntity.builder()
                 .email(email)
-                .password(password)
+                .passwordHash(password)
                 .capital(capital)
                 .build();
     }
 
     private UserEntity buildDefaultUserEntity() {
-        return buildValidUserEntity(EMAIL_USER_1, PASSWORD_USER_1, INITIAL_CAPITAL);
+        return buildValidUserEntity(EMAIL_USER_1, PASSWORD_HASH_USER_1, INITIAL_CAPITAL);
     }
 
     @Test
@@ -52,7 +52,7 @@ class UserRepositoryIntegrationTest {
 
         assertThat(foundUserEntity).isNotNull();
         assertThat(foundUserEntity.getEmail()).isEqualTo(EMAIL_USER_1);
-        assertThat(foundUserEntity.getPassword()).isEqualTo(PASSWORD_USER_1);
+        assertThat(foundUserEntity.getPasswordHash()).isEqualTo(PASSWORD_HASH_USER_1);
         assertThat(foundUserEntity.getCapital()).isEqualByComparingTo(INITIAL_CAPITAL);
     }
 
@@ -113,7 +113,7 @@ class UserRepositoryIntegrationTest {
         UserEntity updatedUserEntity = userRepository.findById(savedUserEntityId).orElseThrow();
         assertThat(updatedUserEntity.getId()).isEqualTo(savedUserEntityId);
         assertThat(updatedUserEntity.getEmail()).isEqualTo(EMAIL_USER_2);
-        assertThat(updatedUserEntity.getPassword()).isEqualTo(PASSWORD_USER_1);
+        assertThat(updatedUserEntity.getPasswordHash()).isEqualTo(PASSWORD_HASH_USER_1);
         assertThat(updatedUserEntity.getCapital()).isEqualByComparingTo(INITIAL_CAPITAL);
     }
 
@@ -121,7 +121,7 @@ class UserRepositoryIntegrationTest {
     @DisplayName("Should find all users")
     void shouldFindAllUsers() {
         UserEntity userEntity1 = buildDefaultUserEntity();
-        UserEntity userEntity2 = buildValidUserEntity(EMAIL_USER_2, PASSWORD_USER_1, INITIAL_CAPITAL);
+        UserEntity userEntity2 = buildValidUserEntity(EMAIL_USER_2, PASSWORD_HASH_USER_1, INITIAL_CAPITAL);
 
         userRepository.save(userEntity1);
         userRepository.save(userEntity2);

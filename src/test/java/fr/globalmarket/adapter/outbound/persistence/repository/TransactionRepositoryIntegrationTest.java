@@ -48,7 +48,7 @@ class TransactionRepositoryIntegrationTest {
 
         persistedUser = entityManager.persistFlushFind(UserEntity.builder()
                 .email(EMAIL_USER_1)
-                .password(PASSWORD_USER_1)
+                .passwordHash(PASSWORD_HASH_USER_1)
                 .capital(INITIAL_CAPITAL)
                 .build());
     }
@@ -128,7 +128,7 @@ class TransactionRepositoryIntegrationTest {
     void shouldThrowExceptionWhenSavingTransactionWithNonExistentUser() {
         UserEntity nonPersistedUser = UserEntity.builder()
                 .email(EMAIL_USER_1)
-                .password(PASSWORD_USER_1)
+                .passwordHash(PASSWORD_HASH_USER_1)
                 .capital(INITIAL_CAPITAL)
                 .build();
 

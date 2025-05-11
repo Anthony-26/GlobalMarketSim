@@ -12,7 +12,7 @@ public class UserMapper implements Mapper<UserEntity, User> {
         return User.builder()
                 .id(entity.getId())
                 .email(entity.getEmail())
-                .password(entity.getPassword())
+                .password(entity.getPasswordHash())
                 .capital(entity.getCapital())
                 .build();
 

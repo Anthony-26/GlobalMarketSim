@@ -42,14 +42,14 @@ class UserRepositoryAdapterTest {
         UserEntity foundEntity = UserEntity.builder()
                 .id(searchId)
                 .email(EMAIL_USER_1)
-                .password(PASSWORD_USER_1)
+                .passwordHash(PASSWORD_HASH_USER_1)
                 .capital(INITIAL_CAPITAL)
                 .build();
 
         User expectedUser = User.builder()
                 .id(searchId)
                 .email(EMAIL_USER_1)
-                .password(PASSWORD_USER_1)
+                .password(PASSWORD_HASH_USER_1)
                 .capital(INITIAL_CAPITAL)
                 .build();
 

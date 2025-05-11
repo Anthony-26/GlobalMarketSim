@@ -22,11 +22,14 @@ public class UserEntity {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false)
-    private String password;
+    @Column(name = "password_hash", nullable = false)
+    private String passwordHash;
 
     @Column(nullable = false, precision = 19, scale = 2)
     private BigDecimal capital;
+
+    @Column(name = "is_enabled", nullable = false)
+    private boolean isEnabled;
 
     public UserEntity() {}
 }

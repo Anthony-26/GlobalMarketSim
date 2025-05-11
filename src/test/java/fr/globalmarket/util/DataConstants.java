@@ -11,7 +11,7 @@ public class DataConstants {
 
     public final String EMAIL_USER_1 = "dbcooper50@gmail.com";
     public final String EMAIL_USER_2 = "skywanderer@gmail.com";
-    public final String PASSWORD_USER_1 = "Atr?Ht5L3&mxFRzzrMMm";
+    public final String PASSWORD_HASH_USER_1 = "8eb9e0896061481ccd76efa21b10a0c4186c1fc89d3e3baeb5e64ca7b3f16a76"; // From Atr?Ht5L3&mxFRzzrMMm
     public final BigDecimal INITIAL_CAPITAL = new BigDecimal("10000.00");
 
     public final AssetType STOCK_ASSET_TYPE = AssetType.STOCK;
