@@ -19,7 +19,7 @@ class UserMapperTest {
         UserEntity userEntity = UserEntity.builder()
                 .id(1L)
                 .email(EMAIL_USER_1)
-                .password(PASSWORD_USER_1)
+                .passwordHash(PASSWORD_HASH_USER_1)
                 .capital(INITIAL_CAPITAL)
                 .build();
 
@@ -28,7 +28,7 @@ class UserMapperTest {
         assertThat(user).isNotNull();
         assertThat(user.getId()).isEqualTo(1L);
         assertThat(user.getEmail()).isEqualTo(EMAIL_USER_1);
-        assertThat(user.getPassword()).isEqualTo(PASSWORD_USER_1);
+        assertThat(user.getPassword()).isEqualTo(PASSWORD_HASH_USER_1);
         assertThat(user.getCapital()).isEqualByComparingTo(INITIAL_CAPITAL);
     }
 
@@ -38,7 +38,7 @@ class UserMapperTest {
         UserEntity userEntityWithNullEmail = UserEntity.builder()
                 .id(2L)
                 .email(null)
-                .password(PASSWORD_USER_1)
+                .passwordHash(PASSWORD_HASH_USER_1)
                 .capital(INITIAL_CAPITAL)
                 .build();
 
