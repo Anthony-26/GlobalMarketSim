@@ -28,7 +28,7 @@ class UserMapperTest {
         assertThat(user).isNotNull();
         assertThat(user.getId()).isEqualTo(1L);
         assertThat(user.getEmail()).isEqualTo(EMAIL_USER_1);
-        assertThat(user.getPassword()).isEqualTo(PASSWORD_HASH_USER_1);
+        assertThat(user.getPasswordHash()).isEqualTo(PASSWORD_HASH_USER_1);
         assertThat(user.getCapital()).isEqualByComparingTo(INITIAL_CAPITAL);
     }
 
