@@ -62,7 +62,7 @@ class TransactionRepositoryAdapterTest {
         return User.builder()
                 .id(1L)
                 .email(EMAIL_USER_1)
-                .password(PASSWORD_HASH_USER_1)
+                .passwordHash(PASSWORD_HASH_USER_1)
                 .capital(INITIAL_CAPITAL)
                 .build();
     }
