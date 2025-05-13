@@ -1,5 +1,6 @@
 package fr.globalmarket.domain.core.model;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
@@ -16,9 +17,12 @@ public class User {
     private String email;
 
     @NonNull
-    private String password;
+    private String passwordHash;
 
     @NonNull
     private BigDecimal capital;
+
+    @NotNull
+    private boolean isEnabled;
 
 }
