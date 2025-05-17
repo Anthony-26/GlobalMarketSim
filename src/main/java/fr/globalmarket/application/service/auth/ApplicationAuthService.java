@@ -1,11 +1,11 @@
 package fr.globalmarket.application.service.auth;
 
-import fr.globalmarket.adapter.inbound.dto.RegisterRequestDto;
-import fr.globalmarket.adapter.inbound.dto.UserResponseDto;
+import fr.globalmarket.adapter.in.dto.RegisterRequestDto;
+import fr.globalmarket.adapter.in.dto.UserResponseDto;
 import fr.globalmarket.application.exception.EmailAlreadyExistsException;
 import fr.globalmarket.application.util.LogSanitizer;
-import fr.globalmarket.domain.core.model.User;
-import fr.globalmarket.domain.port.out.UserRepositoryPort;
+import fr.globalmarket.domain.model.User;
+import fr.globalmarket.application.port.out.UserRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;

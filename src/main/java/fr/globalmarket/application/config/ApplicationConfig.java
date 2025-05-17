@@ -2,7 +2,7 @@ package fr.globalmarket.application.config;
 
 import fr.globalmarket.application.service.auth.ApplicationAuthService;
 import fr.globalmarket.application.service.auth.AuthService;
-import fr.globalmarket.domain.port.out.UserRepositoryPort;
+import fr.globalmarket.application.port.out.UserRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
