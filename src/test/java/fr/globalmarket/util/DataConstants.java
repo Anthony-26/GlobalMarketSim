@@ -1,7 +1,7 @@
 package fr.globalmarket.util;
 
-import fr.globalmarket.domain.core.model.AssetType;
-import fr.globalmarket.domain.core.model.OrderType;
+import fr.globalmarket.domain.model.AssetType;
+import fr.globalmarket.domain.model.OrderType;
 import lombok.experimental.UtilityClass;
 
 import java.math.BigDecimal;

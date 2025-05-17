@@ -1,7 +1,7 @@
 package fr.globalmarket.application.security;
 
-import fr.globalmarket.adapter.outbound.persistence.entity.UserEntity;
-import fr.globalmarket.adapter.outbound.persistence.repository.UserRepository;
+import fr.globalmarket.adapter.out.db.entity.UserEntity;
+import fr.globalmarket.adapter.out.db.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
